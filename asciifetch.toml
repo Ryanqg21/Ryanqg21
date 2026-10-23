@@ -1,0 +1,79 @@
+# asciifetch config. Edit this, then run: asciifetch build
+#
+# Every value here has a working default, so you can delete anything you do not
+# want to change.
+
+[identity]
+user = "ryanqg21@github"
+cwd  = "~/power-systems"
+
+[image]
+src = "headshot.jpg"
+
+# "auto" finds your face and sizes the box around it. It needs the extra:
+#   pip install "asciifetch[auto]"
+#
+# Otherwise write four numbers: [left, top, right, bottom]. They are FRACTIONS
+# of your image, not pixels, each between 0 and 1. So [0.28, 0.02, 0.76, 0.45]
+# means "start 28% across and 2% down, end 76% across and 45% down".
+#
+# Run `asciifetch crop --src headshot.jpg` to draw the box on your photo.
+portrait_crop = "auto"     # head, neck and collar
+avatar_crop   = "auto"     # square head and shoulders
+
+# even_light = true   # for a face lit hard from one side. Off by default: it
+                      # evens the lighting but softens the shading that makes a
+                      # face look round. Needs the extra.
+
+[info]
+fields = [
+  ["Name",       "Brayan"],
+  ["Field",      "Electrical Engineering"],
+  ["Location",   "Cusco, Peru"],
+  [],
+  ["Power",      "Power Systems, DIgSILENT PowerFactory, ETAP"],
+  ["Code",       "Python, SQL"],
+  ["Analytics",  "Power BI"],
+  [],
+  ["Focus",      "Power system studies and data analysis"],
+  ["Projects",   "New projects coming to this profile"],
+  ["GitHub",     "github.com/Ryanqg21"],
+]
+
+[output]
+dir = "."
+# name = "fastfetch"   # basename of the banner files: fastfetch.svg, .png, .txt
+# svg is the one to put in a README. png is a raster fallback. txt drops into a
+# code fence. avatar is a plain square crop. avatar-ascii is that crop as art.
+formats = ["svg", "png", "txt"]
+# font_dir = "~/my-fonts"   # a directory holding SourceCodePro-Regular.otf and -Bold.otf
+
+[layout]
+# cols and rows default to 0, which means "size to fit your fields". Set them
+# only if you want a fixed canvas.
+cols = 0
+rows = 0
+portrait_cols = 92    # how many characters wide the portrait is
+info_col = 98         # which column the info block starts at
+label_width = 13      # how much room labels get before values start
+
+[palette]
+bg     = "#0f1317"
+bar    = "#1b232b"
+line   = "#2a343e"
+text   = "#e9e6df"
+muted  = "#98a2ab"
+accent = "#eca35f"
+green  = "#7fa88b"
+blue   = "#7aa5c4"
+red    = "#cc4b3f"
+yellow = "#e0a43c"
+
+[mask]
+# "auto" uses GrabCut when the extra is installed, and the bright-background
+# flood fill when it is not. "flood" and "grabcut" force one of them.
+method = "auto"
+
+# Flood fill only. How far it may reach into softer edges. Raise it if
+# background survives around the hair. Lower it if it eats the subject.
+k = 8
